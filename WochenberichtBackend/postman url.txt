@@ -1,0 +1,6 @@
+in VS 2022
+https://localhost:44397/api/User/RegisterUser
+
+in VSCODE dotnet run the project from terminal
+https://localhost:7108/api/User/RegisterUser
+

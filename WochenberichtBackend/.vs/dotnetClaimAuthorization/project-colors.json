@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e51a8368-7baa-41b6-a40c-2b798681faea": {
+      "ProjectGuid": "e51a8368-7baa-41b6-a40c-2b798681faea",
+      "DisplayName": "dotnetClaimAuthorization",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

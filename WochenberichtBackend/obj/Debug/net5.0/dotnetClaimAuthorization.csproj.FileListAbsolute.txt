@@ -1,0 +1,7 @@
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.csproj.AssemblyReference.cache
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.AssemblyInfoInputs.cache
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.AssemblyInfo.cs
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.csproj.CoreCompileInputs.cache
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bdag\Desktop\project entwurf\dotnetClaimAuthorization\obj\Debug\net5.0\dotnetClaimAuthorization.MvcApplicationPartsAssemblyInfo.cache

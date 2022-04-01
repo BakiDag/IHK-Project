@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "d41ce699-7786-4d8b-9089-97f440fd9d59",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllAdmins",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetAllAdmins",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetAllAdmins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllEmployees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetAllEmployee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetAllEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n    \"Email\":\"ausbilder2@gmail.com\",\r\n    \"Password\":\"12345678910!aA!\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create One Admin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"email\": \"admin4@gmail.com\",\r\n    \"password\": \"12345678910!aA!\",\r\n    \"userName\": \"admin@gmail.com\",\r\n    \"firstName\": \"Max\",\r\n    \"lastName\": \"Mustermann\",\r\n    \"dateEntry\": \"2010-08-10T00:00:00\",\r\n    \"role\": 0,\r\n    \"token\": \"string\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/CreateAdmin",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"CreateAdmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create One Instructor",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"email\": \"ausbilder4@gmail.com\",\r\n    \"password\": \"12345678910!aA!\",\r\n    \"userName\": \"ausbilder4@gmail.com\",\r\n    \"firstName\": \"Max\",\r\n    \"lastName\": \"Mustermann\",\r\n    \"dateEntry\": \"2010-08-10T00:00:00\",\r\n    \"role\": 1,\r\n    \"token\": \"string\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/CreateInstructor",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"CreateInstructor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create One Apprentice",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"ausbilder@gmail.com\",\r\n    \"password\": \"12345678910!aA!\",\r\n    \"userName\": \"ausbilder@gmail.com\",\r\n    \"firstName\": \"Max\",\r\n    \"lastName\": \"Mustermann\",\r\n    \"dateEntry\": \"2010-08-10T00:00:00\",\r\n    \"role\": 2,\r\n    \"token\": \"string\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/CreateApprentice",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"CreateApprentice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFromAllEmployeByMail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"auszubildender2@gmail.com\"\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetEmployeeAsyncByEmail",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetEmployeeAsyncByEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n    \"Email\":\"admin@gmail.com\",\r\n    \"Password\":\"12345678910!aA!\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdminByMail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"admin@gmail.com\"    \r\n",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetAdminByMail",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetAdminByMail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAdminByMailJsonObject",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n    \"Email\":\"admin@gmail.com\"    \r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetAdminByMail",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetAdminByMail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllInstructor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetAllInstructors",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetAllInstructors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllWeeklyReport",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/GetAllReports",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"GetAllReports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateWeklyReport",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"ApprenticeID\" : 1,\r\n    \"InstructorID\" : 1,\r\n    \"CalenderWeek\" : 2,\r\n    \"DateFrom\" : \"2022-03-14\",\r\n    \"DateTo\" : \"2022-03-14\",\r\n    \"Page\" : 1,\r\n    \"StatusApprentice\" : \"InEditing\",\r\n    \"StatusInstructor\" : \"IsNotOk\",\r\n    \"SigningApprentice\" : \"\",\r\n    \"SigningInstructor\" : \"\",\r\n    \"SigningDateApprentice\" : \"2022-03-14\",\r\n    \"SigningDateInstructor\" : \"2022-03-14\",\r\n         \"Apprentice\": \r\n         {\r\n            // \"ID\":1,\r\n            \"InstructorID\":1,\r\n            \"Email\": \"auszubildender@gmail.com\",\r\n            \"Password\": \"12345678910!aA!\",\r\n            \"UserName\": \"auszubildender@gmail.com\",\r\n            \"FirstName\": \"Ruwen\",\r\n            \"LastName\": \"Müller\",\r\n            \"DateFrom\": \"2022-03-14\",\r\n            \"Role\": 2,\r\n            \"Token\": \"\",\r\n            \"Instructor\": \r\n                            {\r\n                                \"ID\":1,\r\n                                \"EMAIL\": \"AUSBILDER@GMAIL.COM\",\r\n                                \"PASSWORD\": \"12345678910!AA!\",\r\n                                \"USERNAME\": \"AUSBILDER@GMAIL.COM\",\r\n                                \"FIRSTNAME\": \"AUSBILDER@GMAIL.COM\",\r\n                                \"LASTNAME\": \"MEIER\",\r\n                                \"DATEFROM\": \"2022-03-14\",\r\n                                \"ROLE\": 1,\r\n                                \"TOKEN\": \"\"                                \r\n                            }\r\n         },\r\n         \"Instructor\": \r\n         {\r\n            \"ID\":1,\r\n            \"Email\": \"ausbilder@gmail.com\",\r\n            \"Password\": \"12345678910!aA!\",\r\n            \"UserName\": \"ausbilder@gmail.com\",\r\n            \"FirstName\": \"ausbilder@gmail.com\",\r\n            \"LastName\": \"Meier\",\r\n            \"DateFrom\": \"2022-03-14\",\r\n            \"Role\": 1,\r\n            \"Token\": \"\",\r\n            \"Notes\" : \r\n            [{\r\n                \"ID\": 1,\r\n                \"WeeklyReportPositionsID\": 1,\r\n                \"InstructorID\": 1,\r\n                \"Comment\": \"\",\r\n                \"Instructor\": \r\n                {\r\n                    \"ID\":1,\r\n                    \"Email\": \"ausbilder@gmail.com\",\r\n                    \"Password\": \"12345678910!aA!\",\r\n                    \"UserName\": \"ausbilder@gmail.com\",\r\n                    \"FirstName\": \"ausbilder@gmail.com\",\r\n                    \"LastName\": \"Meier\",\r\n                    \"DateFrom\": \"2022-03-14\",\r\n                    \"Role\": 1,\r\n                    \"Token\": \"\"\r\n                },\r\n                \"WEEKLYREPORTPOSITION\": \r\n                {\r\n                    \"ID\": 1,\r\n                    \"WEEKLYREPORTID\": 1,\r\n                    \"APPRENTICEID\": 1,\r\n                    \"NOTEID\" : 1,\r\n                    \"DAILYREPORT\": \"\",\r\n                    \"DAILYHOURS\": 8,\r\n                    \"DATE\": \"2022-03-14\"\r\n                }\r\n            }]\r\n         }\r\n        \r\n} \r\n         \r\n         ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/CreateWeeklyReport",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"CreateWeeklyReport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateWeklyReportPosition",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n     \"ApprenticeID\" : 1,         \r\n     \"DailyReport\": \"this is monday\",\r\n     \"DailyHours\" : 8,         \r\n     \"Date\" : \"2022-03-14\"\r\n         \r\n}             \r\n          ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44397/api/wochenbericht/CreateReportPosition",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44397",
+					"path": [
+						"api",
+						"wochenbericht",
+						"CreateReportPosition"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

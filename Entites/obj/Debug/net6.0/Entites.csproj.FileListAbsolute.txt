@@ -1,0 +1,23 @@
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\bin\Debug\net6.0\Entites.deps.json
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\bin\Debug\net6.0\Entites.dll
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\bin\Debug\net6.0\ref\Entites.dll
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\bin\Debug\net6.0\Entites.pdb
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.AssemblyInfoInputs.cache
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.AssemblyInfo.cs
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.csproj.CoreCompileInputs.cache
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.dll
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\ref\Entites.dll
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.pdb
+C:\Users\bdag\Desktop\neuer Versuch cookie service and role\test\Entites\obj\Debug\net6.0\Entites.csproj.AssemblyReference.cache
+C:\Users\bdag\Desktop\ihk projekt\Entites\bin\Debug\net6.0\Entites.deps.json
+C:\Users\bdag\Desktop\ihk projekt\Entites\bin\Debug\net6.0\Entites.dll
+C:\Users\bdag\Desktop\ihk projekt\Entites\bin\Debug\net6.0\ref\Entites.dll
+C:\Users\bdag\Desktop\ihk projekt\Entites\bin\Debug\net6.0\Entites.pdb
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Entites.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Entites.AssemblyInfoInputs.cache
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Entites.AssemblyInfo.cs
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Entites.csproj.CoreCompileInputs.cache
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Entites.dll
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\ref\Entites.dll
+C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Entites.pdb

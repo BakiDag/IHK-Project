@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oL0DMXhBDRnz0083jDOnunQM2ChWXyg/K0yH171Ahk6pKgQ0NOI4ehSsrIB1ZDfQb46BLT/c8Bqk8qPRUlJkxQ==",
+  "dgSpecHash": "/fflEqMoQWnT+koPWchoRV3Yd48iSrrAZ4PyVUREVNVimxuWK0JVz3rhWvWb1ZZIt1xFpLNHD7CgbVvX2IAqlA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bdag\\Desktop\\ihk projekt\\Data\\DataAccessEfCore.csproj",
+  "projectFilePath": "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Data\\DataAccessEfCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bdag\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\bdag\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -21,3 +21,15 @@ C:\Users\bdag\Desktop\backups project\17.03.2022\Entites\bin\Debug\net6.0\ref\Do
 C:\Users\bdag\Desktop\backups project\17.03.2022\Entites\bin\Debug\net6.0\Domain.pdb
 C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
 C:\Users\bdag\Desktop\ihk projekt\Entites\obj\Debug\net6.0\refint\Domain.dll
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\bin\Debug\net6.0\Domain.deps.json
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\bin\Debug\net6.0\Domain.dll
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\bin\Debug\net6.0\Domain.pdb
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.dll
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\refint\Domain.dll
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\Domain.pdb
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Entites\obj\Debug\net6.0\ref\Domain.dll

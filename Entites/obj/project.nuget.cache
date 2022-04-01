@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lcX3rn9ZsHZYOoQY5BtoSSJl3LtqqX1JtH1Zxk2QP8aPjL9oZjPb7x3J6RaCEbCu0wiFbSiI4SlEvDwZz3RP4w==",
+  "dgSpecHash": "+mUXyMBltJJ8Shn1r9DmqhwM+stuySu5qRDK2mrCwu2sQYCdCzaQOG70kPvK4uP+ej6tGY3y6qA9MjETCO9GXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bdag\\Desktop\\ihk projekt\\Entites\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Entites\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bdag\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.3\\microsoft.entityframeworkcore.6.0.3.nupkg.sha512",
     "C:\\Users\\bdag\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.3\\microsoft.entityframeworkcore.abstractions.6.0.3.nupkg.sha512",

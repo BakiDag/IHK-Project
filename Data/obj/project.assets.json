@@ -2639,11 +2639,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bdag\\Desktop\\ihk projekt\\Data\\DataAccessEfCore.csproj",
+      "projectUniqueName": "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Data\\DataAccessEfCore.csproj",
       "projectName": "DataAccessEfCore",
-      "projectPath": "C:\\Users\\bdag\\Desktop\\ihk projekt\\Data\\DataAccessEfCore.csproj",
+      "projectPath": "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Data\\DataAccessEfCore.csproj",
       "packagesPath": "C:\\Users\\bdag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bdag\\Desktop\\ihk projekt\\Data\\obj\\",
+      "outputPath": "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -2665,8 +2665,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\bdag\\Desktop\\ihk projekt\\Entites\\Domain.csproj": {
-              "projectPath": "C:\\Users\\bdag\\Desktop\\ihk projekt\\Entites\\Domain.csproj"
+            "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Entites\\Domain.csproj": {
+              "projectPath": "C:\\Users\\bdag\\Desktop\\full ihk project\\IHK-Project-\\Entites\\Domain.csproj"
             }
           }
         }

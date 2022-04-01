@@ -1,0 +1,45 @@
+<p *ngIf="!azubiList"><em>bitte Warten...</em></p>
+<h2>Azubi Management</h2>
+<div class="row justify-content-center">
+  
+  </div>
+  
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card" >
+                <table class="table">
+                    <thead>
+                      <tr>                        
+                        <th >Vorname
+                          <input type="text" class="form-control" placeholder="Suche Vorname"
+                              style="width:300px" [(ngModel)]="sucheVorname" >
+                        </th>
+                        <th >Nachname
+                          <input type="text" class="form-control" placeholder="Suche Nachname"
+                              style="width:300px" [(ngModel)]="sucheNachname" >
+                        </th>
+                        <th >Email
+                          <input type="text" class="form-control" placeholder="Suche Email"
+                              style="width:150px" [(ngModel)]="sucheEmail" >
+                        </th>                          
+                        <th scope="col">Löschen</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>          
+                      <tr *ngFor="let i = index,let azubi of azubiList 
+                      | sucheAzubiVorname:sucheVorname
+                      | sucheAzubiNachname: sucheNachname
+                      | sucheAzubiEmail:sucheEmail">                      
+                          <td>{{azubi.firstName}}</td>
+                          <td>{{azubi.lastName}}</td>
+                          <td>{{azubi.email}}</td>         
+                          <td><button type="button" class="btn btn-danger" title="loeschen"><span class="glyphicon glyphicon-trash" aria-hidden="true" (click)="loeschAzubi(azubi,i)"></span></button></td>                          
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    

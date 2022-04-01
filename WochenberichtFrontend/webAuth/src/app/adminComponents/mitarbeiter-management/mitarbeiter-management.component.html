@@ -1,0 +1,75 @@
+<p *ngIf="!MitarbeiterListe">bitte Warten...</p>
+<h2 class="row justify-content-center">Mitarbeiter Management</h2>
+ 
+  <div class="container" >
+    <div class="row justify-content-center">
+                <table class="table table-striped table-hover table-responsive">
+                    <thead>
+                      <tr>  
+                        <th>indexd</th>                                              
+                        <th >Vorname
+                          <input type="text" class="form-control" placeholder="Suche Vorname"
+                              style="width:300px" [(ngModel)]="sucheVorname" >
+                        </th>
+                        <th >Nachname
+                          <input type="text" class="form-control" placeholder="Suche Nachname"
+                              style="width:300px" [(ngModel)]="sucheNachname" >
+                        </th>
+                        <th >Email
+                          <input type="text" class="form-control" placeholder="Suche Email"
+                              style="width:150px" [(ngModel)]="sucheEmail" >
+                        </th>      
+                        <th >Role  
+                          <select  [(ngModel)]="searchRole" >                            
+                            <option value="">zurueck setzen</option>
+                            <option >Admin</option>
+                            <option >Ausbilder</option>
+                            <option >Auszubildender</option>
+                        </select></th>
+                        <th scope="col">Löschen</th>
+                      </tr>
+                    </thead>
+                    <tbody >                      
+                      <tr *ngFor="let i = index,let mitarbeiter of MitarbeiterListe 
+                      | sucheMitarbeiterVorname:sucheVorname
+                      | sucheMitarbeiterNachname: sucheNachname
+                      | sucheMitarbeiterEmail:sucheEmail 
+                      | sucheMitarbeiterRole: searchRole">                      
+                          <td>{{i}}</td>
+                          <td  >
+                            <div >
+                              {{mitarbeiter.firstName}}
+                            </div> 
+                        </td>
+                          <td>
+                            <div >
+                              {{mitarbeiter.lastName}}
+                            </div>
+                            
+                          </td>
+                          
+                          <td>
+                            <div >
+                              {{mitarbeiter.email}}
+                            </div>
+                           
+                        </td>                                         
+                          <td>
+                            <div >
+                              {{mitarbeiter.role}}
+                            </div>                           
+                            </td>                          
+                          <!-- <td><button type="button" class="btn btn-danger" title="loeschen" (click)="deleteContact(MitarbeiterListe[i].email)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td> -->
+                           <!-- <td><button type="button" class="btn btn-danger" title="loeschen" (click)="deleteContact(mitarbeiter.email,tableIndex)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>  -->
+                           <td><button type="button" class="btn btn-danger" title="loeschen" (click)="deleteContact(mitarbeiter.email, i)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>                          
+                          
+                          <td>
+                           
+                          </td>                          
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+  </div> 
+
+   

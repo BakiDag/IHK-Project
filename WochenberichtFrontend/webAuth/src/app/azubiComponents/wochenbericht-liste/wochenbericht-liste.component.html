@@ -1,0 +1,62 @@
+<!-- <p *ngIf="!wochenberichtListe"><em>bitte Warten...</em></p> -->
+
+<h2>Wochenbericht Liste</h2>
+<div class="row justify-content-center">
+
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card" >
+                <table class="table">
+                    <thead>
+                      <tr>                        
+                        <th scope="col">Nummer
+                          <input type="text" class="form-control" placeholder="Nummer" style="width:80px" ></th>
+                        <th scope="col"></th>
+                        <th scope="col">Woche Von - Bis</th>                        
+                        <th scope="col">Monat <select  >                            
+                              <option value="">zurueck setzen</option>
+                              <option >Januar</option>
+                              <option >Februar</option>
+                              <option >März</option>
+                              <option >April</option>
+                              <option >Mai</option>
+                              <option >Juni</option>
+                              <option >Juli</option>
+                              <option >August</option>
+                              <option >September</option>
+                              <option >Oktober</option>
+                              <option >November</option>
+                              <option >Dezember</option>
+                          </select></th>                        
+                        
+                        <th scope="col">Jahr<select  >                            
+                          <option value="">zurueck setzen</option>
+                          <option >2021</option>
+                          <option >2022</option>
+                          <option >2023</option>
+                          <option >2024</option>
+                          <option >2025</option>
+                          <option >2026</option>
+                          
+                      </select></th>
+                      </tr>
+                    </thead>
+                    <tbody>                             
+                      <tr  ngFor="1 to 100">
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          
+                          
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    

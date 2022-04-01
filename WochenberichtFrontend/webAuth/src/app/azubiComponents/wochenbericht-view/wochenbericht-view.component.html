@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="mx-auto w-75">
+  
+<br />
+<div *ngIf="!succesfullSend">
+<div class="form-row">
+  <div class="col">
+
+<div class="card">
+  
+   <button class="btn btn-default" type="button" (click)="toggleInfoButton()"><span class="glyphicon glyphicon-info-sign"></span></button>
+  <div class="p-3 mb-2 bg-warning text-dark" *ngIf="togleInfo" id="Information" ><strong>Information: </strong>
+    <p>Die Textfelder dürfen nicht leer sein. 
+              Im Falle von Urlaub tragen Sie Urlaub ein. Im Falle von Arbeitsunfähigkeit tragen Sie Krankmeldung oder Arbeitsunfähig ein.</p>
+              <p>An Tagen wo Sie sich in der Berufschule befinden, tragen Sie bitte Berufschule ein</p>
+              <p>Die Arbeitszeit kann Null betragen, darf aber  40 Stunden nicht überschreiten.</p>
+              <p>Wenn die 40 Stunden überschritten sind, korrigeren Sie Ihre Arbeitszeit und senden dann Ihr Bericht ein</p>
+              <p>Die Woche von Bis muss angegeben werden</p>
+              <p><strong>!!Die Berichte werden nur gespeichert wenn die Bedingungen erfüllt sind!!</strong></p>
+            
+            </div>
+  <hr>
+   <div >
+     <!-- evtl Entfernen oder Abändern, der Auszubildende dürfte es nicht mehr editieren dürfen nach einsenden -->
+    <p>Status :</p>
+    <p *ngIf="statusTraineeInEditing" ><span class="StatusAzubiInBearbeitungDot" >●</span>{{statusTraineeInEditing}} Azubi bearbeitet</p>
+    <p *ngIf="statusTraineeisSigned"><span class="StatusAzubiHatUnterschriebenDot">● </span>{{statusTraineeisSigned}} Azubi hat unterschrieben</p>
+    <p *ngIf="StatusInstructor"><span class="StatusAusbilderLiegtZurUeberpruefungVor">●</span>{{StatusInstructor}} Ausbilder prüft</p>
+    <p *ngIf="StatusInstructor"><span class="StatusAusbilderSigned">●</span>{{StatusInstructor}} Ausbilder hat unterschrieben</p>
+     
+   </div>
+
+  <h5 class="card-header">Wochenbericht für</h5>
+  <div class="card-body">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>{{this.tokenInfo.Role}} <label>{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}}</label></td>
+        </tr>
+        <tr>
+          <td>Wochenbericht Nummer: {{_Page}}
+        </tr>
+        <tr>
+          <td>Woche von: <input type="date" class="selectpicker" [(ngModel)]="_DateFrom"></td>
+          
+          <td>Bis: <input type="date" class="selectpicker" id="startdate" [(ngModel)]="_DateTo"></td>
+        </tr>
+        <tr>
+          <td>Wochenarbeitszeit: <label placeholder="40 Stunden" >{{WeeklyWorkHours}} Stunden </label>   </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br/>
+
+
+  <!-- Montag -->
+<div class="card text-center ">
+  <div class="group -p5" >
+    <br>
+    <div class="card-header"><h4 style="margin-left: 15px;"><strong>Montag</strong></h4> </div>      
+    <div>
+      <div class="row mt-5">
+        <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+        <div class="col-auto">
+          <Label>Arbeitszeit in Stunden</Label>          
+          <input class="form-control" type="number" id="replyNumber" min="0" max="8" placeholder=0 data-bind="value:replyNumber" [(ngModel)]="HoursMonday"/>
+        </div>
+      </div>      
+      <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+        <div class="col-8">
+            <br>
+            <label for="MondayReport">Report</label>
+            
+            <textarea class="form-control" id="exampleFormControlTextarea1" 
+      cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="MondayReport"></textarea>  
+        </div>        
+        <div class="col-4">
+            <br>
+            <label for="MondayComment" >Comments</label>
+            <textarea class="form-control" id="MondayComment" 
+      cols="8" rows="5" style="resize: none" maxlength="300" readonly>Comments</textarea>      
+            </div>      
+      </div>   
+      <div class="row mt-5">
+        <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+        <div class="col-auto">
+          <button class="btn btn-primary m-2" type="submit" (click)="SaveMonday()">Speichern</button>   
+        </div>
+      </div>  
+    </div>    
+  </div>  
+</div>
+  <br>
+
+  <!-- Diesntag -->
+  <div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Dienstag</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>          
+            <input class="form-control" type="number" id="replyNumber" min="0" max="8" placeholder=0 data-bind="value:replyNumber" [(ngModel)]="HoursTuesday"/>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="TuesdayReport">Report</label>              
+              <textarea class="form-control" id="exampleFormControlTextarea1" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="TuesdayReport"></textarea>  
+          </div>        
+          <div class="col-4">
+              <br>
+              <label for="TuesdayComment" >Comments</label>
+              <textarea class="form-control" id="TuesdayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" readonly>Comments</textarea>      
+              </div>      
+        </div>   
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <button class="btn btn-primary m-2" type="submit" (click)="SaveDien()">Speichern</button>   
+          </div>
+        </div>  
+      </div>    
+    </div>  
+  </div>
+    <br>
+  
+ <!-- Mittwoch -->
+ <div class="card text-center ">
+  <div class="group -p5" >
+    <br>
+    <div class="card-header"><h4 style="margin-left: 15px;"><strong>Mittwoch</strong></h4> </div>      
+    <div>
+      <div class="row mt-5">
+        <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+        <div class="col-auto">
+          <Label>Arbeitszeit in Stunden</Label>          
+          <input class="form-control" type="number" id="replyNumber" min="0" max="8" placeholder=0 data-bind="value:replyNumber" [(ngModel)]="HoursWednesday"/>
+        </div>
+      </div>      
+      <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+        <div class="col-8">
+            <br>
+            <label for="WednesdayReport">Report</label>              
+            <textarea class="form-control" id="exampleFormControlTextarea1" 
+      cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="WednesdayReport"></textarea>  
+        </div>        
+        <div class="col-4">
+            <br>
+            <label for="WednesdayComment" >Comments</label>
+            <textarea class="form-control" id="TuesdayComment" 
+      cols="8" rows="5" style="resize: none" maxlength="300" readonly>Comments</textarea>      
+            </div>      
+      </div>   
+      <div class="row mt-5">
+        <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+        <div class="col-auto">
+          <button class="btn btn-primary m-2" type="submit" (click)="SaveMit()">Speichern</button>   
+        </div>
+      </div>  
+    </div>    
+  </div>  
+</div>
+  <br>
+
+      
+     <!-- Donnerstag -->
+  <div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Donnerstag</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>          
+            <input class="form-control" type="number" id="replyNumber" min="0" max="8" placeholder=0 data-bind="value:replyNumber" [(ngModel)]="HoursThursday"/>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="ThursdayReport">Report</label>              
+              <textarea class="form-control" id="exampleFormControlTextarea1" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="ThursdayReport"></textarea>  
+          </div>        
+          <div class="col-4">
+              <br>
+              <label for="ThursdayComment" >Comments</label>
+              <textarea class="form-control" id="ThursdayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" readonly>Comments</textarea>      
+              </div>      
+        </div>   
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <button class="btn btn-primary m-2" type="submit" (click)="SaveThursday()">Speichern</button>   
+          </div>
+        </div>  
+      </div>    
+    </div>  
+  </div>
+    <br>
+  
+        
+       <!-- Freitag -->
+  <div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Freitag</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>          
+            <input class="form-control" type="number" id="replyNumber" min="0" max="8" placeholder=0 data-bind="value:replyNumber" [(ngModel)]="HoursFriday"/>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="FridayReport">Report</label>              
+              <textarea class="form-control" id="exampleFormControlTextarea1" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="FridayReport"></textarea>  
+          </div>        
+          <div class="col-4">
+              <br>
+              <label for="FridayComment" >Comments</label>
+              <textarea class="form-control" id="FridayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" readonly>Comments</textarea>      
+              </div>      
+        </div>   
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <button class="btn btn-primary m-2" type="submit" (click)="SaveFriday()">Speichern</button>   
+          </div>
+        </div>  
+      </div>    
+    </div>  
+  </div>
+    <br>
+  
+          
+        
+        </div>
+</div>
+
+
+
+  
+  <div class="azubi-sign">
+    <br>    
+    <p>Mit dem Absenden bestätigen Sie die Richtigkeit der Angaben Ihrer ausgeführten Tätigkeiten von dieser Woche.</p>
+    <p>Unterschrift Auzubildender</p>    
+    <label style="border: 1px solid">{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}} </label>
+    
+  </div>
+
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-2" type="button" (click)="Send()">Absenden</button>  
+</div>
+<br>
+
+</div>
+
+</body>
+</html>

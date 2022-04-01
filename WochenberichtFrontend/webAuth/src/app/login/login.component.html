@@ -1,0 +1,96 @@
+<!-- <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="card-body">
+            <h5 class="card-title text-center">Login</h5>
+            <div class="mb-3 row">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="text" formControlName="email" class="form-control" id="staticEmail" value="">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" formControlName="password" class="form-control" id="inputPassword">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
+
+ -->
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card p-5">
+        <!-- <div class="card p-5"> padding 5 -->
+<div class="row">
+  <div class="col-md-4">
+    <section>
+      <form id="account" method="post" novalidate="novalidate">
+        <h2>Fake Login</h2>
+        <hr>
+        <!-- <div class="form-floating"> -->
+          <!-- <input class="form-control valid" type="text" id="Input_Role" readonly [value]="this._User.user[0].role"> -->
+          <!-- <input class="form-control valid" type="text" id="Input_Role" readonly>
+          <label class="form-label" for="Input_Role">Role</label>
+        </div> -->
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Email" readonly [value]="this.user[0].email">
+          <label class="form-label" for="Input_Email">Email</label>
+        </div>
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Role" readonly [value]="this.user[0].role">
+          <label class="form-label" for="Input_Role">Role</label>
+        </div>
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Password" readonly [value]="this.user[0].password">
+          <label class="form-label" for="Input_Password">Password</label>
+        </div>
+        <div class="form-floating">
+          <!-- <select name="Select" class="selectpicker form-select" id="selectbox"
+                  aria-label="Default select example" > -->
+                  <select  name="Select" class="selectpicker form-select" id="selectbox"
+                  aria-label="Default select example" [(ngModel)]="auswahl" (change)="selected()">
+            <!--(change)="this.loggedInUser.selected"-->
+            <option [value]="0" >Open this select menu</option>
+            <option [value]="1">Admin</option>
+            <option [value]="2">Ausbilder</option>
+            <option [value]="3">Auszubildender</option>
+          </select>
+        </div>
+        <br>
+        <div>          
+          <!-- <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button> -->
+          <button type="submit" class="w-100 btn btn-lg btn-primary"  (click)="onSubmit()">Log in</button>          
+        </div>
+      </form>
+    </section>
+  </div>
+  <div class="col-md-6 col-md-offset-2">
+    <section>
+      <h3>Fake Login Example. </h3>
+      <hr>
+      <div>
+        <p>
+          Benutze das Dropdown Element um in einen jeweiligen Account einzuloggen
+          
+          
+        </p>
+      </div>
+      
+    </section>
+  </div>
+</div>
+</div>
+    </div>
+  </div>

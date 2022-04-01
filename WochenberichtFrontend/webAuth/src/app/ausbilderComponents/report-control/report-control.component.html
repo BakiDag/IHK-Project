@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="mx-auto w-75">
+   <br />
+<div *ngIf="!erfolgreichGesendet">
+<div class="form-row">
+  <div class="col">
+<div class="card">  
+   <div >
+     <!-- evtl Entfernen oder Abändern, der Auszubildende dürfte es nicht mehr editieren dürfen nach einsenden -->
+    <p>Status :</p>
+    <p *ngIf="statusAzubiInBearbeitung" ><span class="StatusAzubiInBearbeitungDot" >●</span>{{statusAzubiInBearbeitung}} Azubi bearbeitet</p>
+    <p *ngIf="statusAzubiHatUnterschrieben"><span class="StatusAzubiHatUnterschriebenDot">● </span>{{statusAzubiHatUnterschrieben}} Azubi hat unterschrieben</p>
+    <p *ngIf="StatusInstructor"><span class="StatusAusbilderLiegtZurUeberpruefungVor">●</span>{{StatusInstructor}} Ausbilder prüft</p>
+    <p *ngIf="StatusInstructor"><span class="StatusAusbilderSigned">●</span>{{StatusInstructor}} Ausbilder hat unterschrieben</p>
+     
+   </div>
+
+  <h5 class="card-header">Wochenbericht von</h5>
+  <div class="card-body">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>{{this.tokenInfo.Role}} <label class="from-control" readonly>{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}}</label></td>
+        </tr>
+        <tr>
+          <td>Wochenbericht Nummer: {{_Page}} data binding
+        </tr>
+        <tr>
+          <td>Woche von: <label>{{_DateFrom}} test Label</label></td>         
+          <td>Bis: <label> {{_DateTil}} test Label</label></td>
+        </tr>
+        <tr>
+          <td>Wochenarbeitszeit: <label placeholder="40 Stunden" [(ngModel)]="WeeklyWorkHours"> Stunden Label</label>   </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br />
+
+<!-- Montag -->
+<div class="card text-center ">
+  <div class="group -p5" >
+    <br>
+    <div class="card-header"><h4 style="margin-left: 15px;"><strong>Montag</strong></h4> </div>      
+    <div>
+      <div class="row mt-5">
+        <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+        <div class="col-auto">
+          <Label>Arbeitszeit in Stunden</Label>          
+          <label class="form-control"[(ngModel)]="HoursMon" type="number" readonly></label>
+        </div>
+      </div>      
+      <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+        <div class="col-8">
+            <br>
+            <label for="MondayReport">Report</label>
+            
+            <textarea class="form-control" id="MondayReport" 
+      cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="MondayReport" readonly></textarea>           
+        </div>
+        <div class="col-4">
+            <br>
+            <label for="MondayComment">Comments</label>
+            <textarea class="form-control" id="MondayComment" 
+      cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="MondayComment"></textarea>
+            </div>            
+      </div>      
+    </div>
+  </div>
+</div>
+  <br>
+<!-- Dienstag -->
+<div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Dienstag</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>
+            <label class="form-control"[(ngModel)]="HoursTuesday" type="number" readonly></label>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="TuesadayReport">Report</label>
+              <textarea class="form-control" id="TuesadayReport" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="TuesdayReport" readonly></textarea>           
+          </div>
+          <div class="col-4">
+              <br>
+              <label for="TuesdayComment">Comments</label>
+              <textarea class="form-control" id="TuesdayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="TuesdayComment"></textarea>
+              </div>            
+        </div>      
+      </div>
+    </div>
+  </div>
+    <br>
+
+    <!-- Mittwoch -->
+<div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Mittwoch</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>
+            <label class="form-control"[(ngModel)]="HoursWednesday" type="number" readonly></label>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="WednesdayReport">Report</label>
+              <textarea class="form-control" id="WednesdayReport" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="WednesdayReport" readonly></textarea>           
+          </div>
+          <div class="col-4">
+              <br>
+              <label for="WednesdayComment">Comments</label>
+              <textarea class="form-control" id="WednesdayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="WednesdayComment"></textarea>
+              </div>            
+        </div>      
+      </div>
+    </div>
+  </div>
+    <br>
+<!-- Donnerstag -->
+<div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Donnerstag</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>
+            <label class="form-control"[(ngModel)]="HoursThursday" type="number" readonly></label>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="ThursdayReport">Report</label>
+              <textarea class="form-control" id="ThursdayReport" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="ThursdayReport" readonly></textarea>           
+          </div>
+          <div class="col-4">
+              <br>
+              <label for="ThursdayComment">Comments</label>
+              <textarea class="form-control" id="ThursdayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="ThursdayComment"></textarea>
+              </div>            
+        </div>      
+      </div>
+    </div>
+  </div>
+    <br>
+
+    <!-- Freitag -->
+<div class="card text-center ">
+    <div class="group -p5" >
+      <br>
+      <div class="card-header"><h4 style="margin-left: 15px;"><strong>Freitag</strong></h4> </div>      
+      <div>
+        <div class="row mt-5">
+          <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
+          <div class="col-auto">
+            <Label>Arbeitszeit in Stunden</Label>
+            <label class="form-control"[(ngModel)]="HoursFriday" type="number" readonly></label>
+          </div>
+        </div>      
+        <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
+          <div class="col-8">
+              <br>
+              <label for="FridayReport">Report</label>
+              <textarea class="form-control" id="FridayReport" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="FridayReport" readonly></textarea>           
+          </div>
+          <div class="col-4">
+              <br>
+              <label for="FridayComment">Comments</label>
+              <textarea class="form-control" id="FridayComment" 
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="FridayComment"></textarea>
+              </div>  
+                        
+        </div>      
+      </div>
+    </div>
+    <br>
+  </div>            
+        </div>
+</div>
+
+<br>
+<div class="azubi-sign">
+  <br>    
+  <p>Mit dem Absenden bestätigen Sie, das Sie den Bericht geprüft haben.</p>
+  <p>Unterschrift Ausbilder</p>    
+  <label style="border: 1px solid">{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}} </label>
+  
+</div>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-2" type="button" (click)="Release()">Release</button>  
+  <button class="btn btn-danger me-md-2" type="button" (click)="Decline()">Decline</button>  
+</div>
+<br>
+
+</div>
+ 
+</body>
+</html>
+

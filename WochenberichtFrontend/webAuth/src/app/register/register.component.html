@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-8">
+          <div class="card p-5" >
+
+<div class="row">
+  <div class="col-md-5">
+    <section>
+      
+      <!-- <form id="account" method="post" novalidate="novalidate"> -->
+        <h2>Fake Regiestrierung</h2>
+        <hr>
+        <div class="form-floating">
+          <!-- <input class="form-control valid" type="text" id="Input_Role" readonly [value]="this._User.user[0].role"> -->
+          <input class="form-control valid" type="text" id="Input_Vorname" readonly  [value]="this.user[0].vorname"> 
+          <label class="form-label" for="Input_Vorname">Vorname</label>
+        </div>
+        
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Nachname" readonly  [value]="this.user[0].nachname">
+          <label class="form-label" for="Input_Nachname">Nachname</label>
+        </div>
+        
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Email" readonly  [value]="this.user[0].email">
+          <label class="form-label" for="Input_Email">Email</label>
+        </div>
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Password" readonly  [value]="this.user[0].password ">
+          <label class="form-label" for="Input_Password">Password</label>
+        </div>
+        <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Benutzername" readonly  [value]="this.user[0].benutzerName">
+          <label class="form-label" for="Input_Benutzername">Benutzername</label>
+        </div>
+              
+          <div class="form-floating">
+          <input class="form-control valid" type="text" id="Input_Role" readonly  [value]="this.user[0].role ">
+          <label class="form-label" for="Input_Role">Role</label>          
+        </div>        
+        <div class="form-floating">
+          <select  name="Select" class="selectpicker form-select" id="selectbox"
+          aria-label="Default select example" [(ngModel)]="auswahl" (change)="selected()"> 
+          
+
+            <option [value]="0">Open this select menu</option>
+            <option [value]="1">Admin</option>
+            <option [value]="2">Ausbilder</option>
+            <option [value]="3">Auszubildender</option>
+          </select>
+        </div>
+        <br>
+        <div>          
+          <button type="submit" class="w-100 btn btn-lg btn-primary" (click)="onSubmit()">Registrieren</button>          
+        </div>      
+    </section>
+  </div>
+
+  <div class="col-md-7 p-2">
+    <section>
+      <h3>Fake Regiestrierungs-Beispiel. </h3>
+      <hr>
+      <div>
+        <p>
+         Benutze das Dropdown Element um einen jeweiligen Account zu registrieren
+        </p>
+      </div>      
+    </section>
+  </div>

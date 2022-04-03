@@ -88,7 +88,7 @@ namespace Wochenbericht.Controllers
 
 
                 
-                var reportExist = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(PreviousMonday) == null;
+                var reportExist = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom( PreviousMonday) == null;
                 
                 if (reportExist)
                 {

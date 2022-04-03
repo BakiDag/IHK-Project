@@ -29,6 +29,7 @@ using WochenberichtWebApp.Models;
 using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
 using System.Threading;
+using FluentDateTime;
 
 namespace Wochenbericht.Controllers
 {
@@ -79,22 +80,32 @@ namespace Wochenbericht.Controllers
         {
             try
             {
-                var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
-                var reportExist = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday) != null;
-                
-                if (reportExist == true)
-                {
-                    monday = monday.AddDays(7);
-                }
+                var NextMonday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                var NextFriday = NextMonday.AddDays(4);
+                var PreviousMonday = DateTime.Now.Previous(DayOfWeek.Monday);
+                var PreviousFriday = PreviousMonday.AddDays(4);
                 var today = DateTime.Today;
-                var friday = monday.AddDays(4);
+
+
+                
+                var reportExist = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(PreviousMonday) == null;
+                
+                if (reportExist)
+                {
+                    _weeklyReport.DateFrom = NextMonday;
+                }
+                else
+                {
+                    _weeklyReport.DateFrom = PreviousMonday;
+                }
+                
                 
                 var weeklyReport = new WeeklyReport
                 {
                     InstructorID = _weeklyReport.InstructorID,
                     CalenderWeek = _weeklyReport.CalenderWeek,
-                    DateFrom = monday,
-                    DateTo = friday,
+                    DateFrom = _weeklyReport.DateFrom,
+                    DateTo = _weeklyReport.DateFrom.AddDays(4),
                     Page = _weeklyReport.Page,
                     ApprenticeID = _weeklyReport.ApprenticeID,
                     StatusApprentice = _weeklyReport.StatusApprentice,
@@ -105,7 +116,7 @@ namespace Wochenbericht.Controllers
                     SigningDateApprentice = _weeklyReport.SigningDateApprentice,
                     WeeklyReportPositions = _weeklyReport.WeeklyReportPositions,
                 };
-                var getReportID = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday).Result.ID;
+                //var getReportID = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday).Result.ID;
                 
                 var Appr = await unitOfWork.ApprenticeRepository.GetApprenticeAsyncById(_weeklyReport.ApprenticeID);
                 var Inst = await unitOfWork.InstrutorRepository.GetInstructorAsyncById(_weeklyReport.InstructorID);
@@ -120,30 +131,57 @@ namespace Wochenbericht.Controllers
                 {
                     return BadRequest("Wochenbericht mit Positionen und Notes konnte nicht gespeichert werden " + weeklyReport);
                 }
-                var getReport = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday);
-                var weeklyReportPosition = new WeeklyReportPosition();
-                weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
-                weeklyReportPosition.ApprenticeID = Appr.ID;
-                //weeklyReportPosition.
-                //weeklyReportPosition.NoteID = _weeklyReportPosition.NoteID;
-                weeklyReportPosition.DailyReport = "";
-                weeklyReportPosition.DailyHours = 0;
-                weeklyReportPosition.Date = monday;
-                //weeklyReportPosition.WeeklyReport.ID = getReport
-                var createReport = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition) != null;
-                if (createReport == true)
-                {
-                    var savePosition = await unitOfWork.SaveAsync();
-                    if (savePosition == true)
-                    {
-                        return StatusCode(201, weeklyReportPosition);
-                    }
-                }
                 else
                 {
-                    return BadRequest(weeklyReportPosition);
+                    var getReport = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(weeklyReport.DateFrom);
+                    var countPositionDays = 0;
+                    var FivePositionsSaved = 0;
+                    while (getReport.Result.DateFrom< getReport.Result.DateTo)
+                    //for (int i = 0; i < 5; i++)
+                    {
+                        
+                        //var id = unitOfWork.WeeklyReportPositionRepository.GetAllReportPositionIDAsync();
+                        var weeklyReportPosition = new WeeklyReportPosition();
+                        weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
+                        weeklyReportPosition.ApprenticeID = Appr.ID;
+                        //weeklyReportPosition.
+                        //weeklyReportPosition.NoteID = _weeklyReportPosition.NoteID;
+                        weeklyReportPosition.DailyReport = "";
+                        weeklyReportPosition.DailyHours = 0;
+                        if(countPositionDays == 0)
+                        {
+                            weeklyReportPosition.Date = weeklyReport.DateFrom;
+                        }
+                        else
+                        {
+                            weeklyReportPosition.Date = weeklyReport.DateFrom.AddDays(countPositionDays);
+                        }
+                        countPositionDays++;
+
+                        //weeklyReportPosition.WeeklyReport.ID = getReport
+
+                        var createReport = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition) != null;
+                        
+                        if (createReport == true)
+                        {
+                            var savePosition = await unitOfWork.SaveAsync();
+                            if (savePosition == true)
+                            {
+                                FivePositionsSaved++;
+                            }
+                            else
+                            {
+                                return BadRequest(weeklyReportPosition);
+                            }
+                            if (FivePositionsSaved == 5)
+                            {
+                                return StatusCode(201, weeklyReportPosition);
+                            }
+                        }
+                    }
+
+                    return StatusCode(201, "Weekly Report Created\r\n" + weeklyReport);
                 }
-                return StatusCode(201, "Weekly Report Created\r\n" + weeklyReport);
             }
             catch (Exception ex)
             {

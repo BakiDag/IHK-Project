@@ -1476,3 +1476,4 @@ C:\Users\bdag\Desktop\full ihk project\IHK-Project-\WochenberichtBackend\obj\Deb
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\WochenberichtBackend\obj\Debug\net6.0\WochenberichtWebApp.pdb
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\WochenberichtBackend\obj\Debug\net6.0\WochenberichtWebApp.genruntimeconfig.cache
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\WochenberichtBackend\obj\Debug\net6.0\ref\WochenberichtWebApp.dll
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\WochenberichtBackend\bin\Debug\net6.0\FluentDateTime.dll

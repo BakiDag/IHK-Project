@@ -19,6 +19,7 @@ namespace Domain.Models
         public DateTime DateEntry { get; set; }
         public Role Role { get; set; }
         public string Token { get; set; }
+        [NotMapped]
         public virtual Instructor Instructor { get; set; }
         public virtual ICollection<WeeklyReport> WeeklyReports { get; set; } = new List<WeeklyReport>();
         public virtual ICollection<WeeklyReportPosition> WeeklyReportPositions { get; set; } = new List<WeeklyReportPosition>();

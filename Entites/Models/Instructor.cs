@@ -19,6 +19,7 @@ namespace Domain.Models
         public Role Role { get; set; }
         public string Token { get; set; }
         public virtual ICollection<Note> Notes { get; set; } = new List<Note>();
+        [NotMapped]
         public virtual ICollection<WeeklyReport> WeeklyReports { get; set; } = new List<WeeklyReport>();
         public virtual ICollection<Apprentice> Apprentices { get; set; } = new List<Apprentice>();
     }

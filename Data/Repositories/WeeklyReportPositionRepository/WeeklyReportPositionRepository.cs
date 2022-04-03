@@ -58,6 +58,9 @@ namespace DataAccessEfCore.Repositories.WeeklyReportPositionRepository
 
         }
         #endregion
+
+        
+
         #region DeleteOne
         public async Task<WeeklyReportPosition> DeletetWeeklyReportPositionAsync(int id)
         {

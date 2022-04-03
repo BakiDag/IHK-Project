@@ -16,5 +16,6 @@ namespace DataAccessEfCore.Repositories.WeeklyReportPositionRepository
         Task<WeeklyReportPosition> CreateWeeklyReportPositionAsync(WeeklyReportPosition weeklyReportPosition);
         Task<WeeklyReportPosition> DeletetWeeklyReportPositionAsync(int id);
         Task<int> GetIDCount();
+        
     }
 }

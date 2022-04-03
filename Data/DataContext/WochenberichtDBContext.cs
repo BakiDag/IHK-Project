@@ -84,18 +84,21 @@ namespace DataAccessEfCore.DataContext
                     entity.Property(e => e.DateEntry).HasColumnName("DateEntry").HasColumnType("datetime2");
                     entity.Property(e => e.Role).HasColumnName("Role").IsRequired();
                     entity.Property(e => e.Token).HasColumnName("Token").HasMaxLength(500).IsRequired();
-                    entity.HasOne(e => e.Instructor)
-                          .WithMany(e => e.Apprentices)
-                          .HasForeignKey(e => e.InstructorID)
-                          .OnDelete(DeleteBehavior.Cascade);
-                    entity.HasMany(e => e.WeeklyReports)
-                          .WithOne(e => e.Apprentice)
-                          .HasForeignKey(e => e.ApprenticeID)
-                          .OnDelete(DeleteBehavior.Cascade);
-                    entity.HasMany(e => e.WeeklyReportPositions)
-                          .WithOne(e => e.apprentice)
-                          .HasForeignKey(e => e.ApprenticeID)
-                          .OnDelete(DeleteBehavior.Cascade);
+                    entity.Property(e => e.InstructorID).HasColumnName("InstructorID").IsRequired();
+                    
+                    //entity.HasOne(e => e.Instructor)
+                    //      .WithMany(e => e.Apprentices)
+                    //      .HasForeignKey(e => e.InstructorID)
+                    //      .OnDelete(DeleteBehavior.Cascade);
+
+                    //entity.HasMany(e => e.WeeklyReports)
+                    //      .WithOne(e => e.Apprentice)
+                    //      .HasForeignKey(e => e.ApprenticeID)
+                    //      .OnDelete(DeleteBehavior.Cascade);
+                    //entity.HasMany(e => e.WeeklyReportPositions)
+                    //      .WithOne(e => e.apprentice)
+                    //      .HasForeignKey(e => e.ApprenticeID)
+                    //      .OnDelete(DeleteBehavior.Cascade);
                 });
             #endregion
 
@@ -166,17 +169,17 @@ namespace DataAccessEfCore.DataContext
                 entity.Property(e => e.SigningDateInstructor)
                       .HasColumnName("SigningDateInstructor")
                       .HasColumnType("datetime2");
+                
 
+                //entity.HasOne(d => d.Apprentice)
+                //      .WithMany(p => p.WeeklyReports)
+                //      .HasForeignKey(d => d.ApprenticeID)
+                //      .OnDelete(DeleteBehavior.Cascade);
 
-                entity.HasOne(d => d.Apprentice)
-                      .WithMany(p => p.WeeklyReports)
-                      .HasForeignKey(d => d.ApprenticeID)
-                      .OnDelete(DeleteBehavior.Cascade);
-
-                entity.HasOne(d => d.Instructor)
-                      .WithMany(p => p.WeeklyReports)
-                      .HasForeignKey(d => d.InstructorID)
-                      .OnDelete(DeleteBehavior.NoAction);
+                //entity.HasOne(d => d.Instructor)
+                //      .WithMany(p => p.WeeklyReports)
+                //      .HasForeignKey(d => d.InstructorID)
+                //      .OnDelete(DeleteBehavior.NoAction);
             });
             #endregion
 
@@ -198,17 +201,22 @@ namespace DataAccessEfCore.DataContext
                 entity.Property(e => e.Date)
                       .HasColumnName("Date");
 
-                entity.HasOne(d => d.WeeklyReport)
-                      .WithMany(p => p.WeeklyReportPositions)
-                      .HasForeignKey(d => d.WeeklyReportID)
-                      .IsRequired()
-                      .OnDelete(DeleteBehavior.Restrict); 
+                entity.Property(e => e.WeeklyReportID)
+                        .HasColumnName("WeeklyReportID")
+                        .IsRequired();
+                        
+
+                //entity.HasOne(d => d.WeeklyReport)
+                //      .WithMany(p => p.WeeklyReportPositions)
+                //      .HasForeignKey(d => d.WeeklyReportID)
+                //      .IsRequired()                      
+                //      .OnDelete(DeleteBehavior.Restrict); 
                     
-                entity.HasOne(d => d.apprentice)
-                      .WithMany(p => p.WeeklyReportPositions)
-                      .HasForeignKey(d => d.ApprenticeID)
-                      .IsRequired()
-                      .OnDelete(DeleteBehavior.Restrict);
+                //entity.HasOne(d => d.apprentice)
+                //      .WithMany(p => p.WeeklyReportPositions)
+                //      .HasForeignKey(d => d.ApprenticeID)
+                //      .IsRequired()
+                //      .OnDelete(DeleteBehavior.Restrict);
 
             });
             #endregion

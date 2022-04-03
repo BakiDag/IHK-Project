@@ -15,9 +15,11 @@ namespace Domain.Models
         public string? DailyReport { get; set; }
         public int DailyHours { get; set; }
         public DateTime Date { get; set; }
-
+        [NotMapped]
         public virtual WeeklyReport? WeeklyReport { get; set; }
-        public virtual Note? Note { get; set; }        
+        [NotMapped]
+        public virtual Note? Note { get; set; }
+        [NotMapped]
         public virtual Apprentice? apprentice { get; set; }
 
     }

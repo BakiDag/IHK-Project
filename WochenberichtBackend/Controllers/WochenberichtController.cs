@@ -105,7 +105,7 @@ namespace Wochenbericht.Controllers
                     SigningDateApprentice = _weeklyReport.SigningDateApprentice,
                     WeeklyReportPositions = _weeklyReport.WeeklyReportPositions,
                 };
-                var getReportID = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday);
+                var getReportID = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday).Result.ID;
                 
                 var Appr = await unitOfWork.ApprenticeRepository.GetApprenticeAsyncById(_weeklyReport.ApprenticeID);
                 var Inst = await unitOfWork.InstrutorRepository.GetInstructorAsyncById(_weeklyReport.InstructorID);
@@ -122,13 +122,14 @@ namespace Wochenbericht.Controllers
                 }
                 var getReport = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday);
                 var weeklyReportPosition = new WeeklyReportPosition();
-                //weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
+                weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
                 weeklyReportPosition.ApprenticeID = Appr.ID;
+                //weeklyReportPosition.
                 //weeklyReportPosition.NoteID = _weeklyReportPosition.NoteID;
                 weeklyReportPosition.DailyReport = "";
                 weeklyReportPosition.DailyHours = 0;
                 weeklyReportPosition.Date = monday;
-
+                //weeklyReportPosition.WeeklyReport.ID = getReport
                 var createReport = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition) != null;
                 if (createReport == true)
                 {

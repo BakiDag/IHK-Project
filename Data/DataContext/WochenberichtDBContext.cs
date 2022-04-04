@@ -131,7 +131,7 @@ namespace DataAccessEfCore.DataContext
 
                 entity.Property(e => e.DateFrom)
                       .HasColumnName("DateFrom")
-                      .HasColumnType("datetime2")
+                      .HasColumnType("date")
                       .IsRequired();
                 entity.HasIndex(e => e.DateFrom).IsUnique();
 

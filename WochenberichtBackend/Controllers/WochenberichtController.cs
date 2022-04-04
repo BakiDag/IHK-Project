@@ -80,32 +80,27 @@ namespace Wochenbericht.Controllers
         {
             try
             {
-                var NextMonday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
-                var NextFriday = NextMonday.AddDays(4);
-                var PreviousMonday = DateTime.Now.Previous(DayOfWeek.Monday);
-                var PreviousFriday = PreviousMonday.AddDays(4);
-                var today = DateTime.Today;
-                _weeklyReport.DateFrom = PreviousMonday;
+                DateTime ThisWeekMonday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                DateTime today = DateTime.Today;
+                ThisWeekMonday = ThisWeekMonday.Date;
+                _weeklyReport.DateFrom = _weeklyReport.DateFrom.Date;
+                _weeklyReport.DateTo = _weeklyReport.DateTo.Date;
 
-                var all = unitOfWork.WeeklyReportRepository.GetAllWeeklyReportAsync();
-                var reportExist = new WeeklyReport(); //= unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(_weeklyReport.DateFrom);
-                foreach (var item in await all)
+                if (_weeklyReport.DateFrom != ThisWeekMonday || _weeklyReport.DateTo != ThisWeekMonday.AddDays(4))
                 {
-                    if(item.DateFrom == PreviousMonday)
-                    {
-                        reportExist.DateFrom = item.DateFrom;
-                    }
+                    return BadRequest("Datum falsch");
                 }
-                if (reportExist.DateFrom == PreviousMonday)
+                
+                var thisWeekReportExist = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(ThisWeekMonday);
+                
+                if(thisWeekReportExist.Result == null)
                 {
-                    _weeklyReport.DateFrom = NextMonday;
+                    _weeklyReport.DateFrom = ThisWeekMonday;
                 }
                 else
                 {
-                    _weeklyReport.DateFrom = PreviousMonday;
-                }
-                
-                
+                    return BadRequest("Wochenbericht existiert bereits");
+                }                
                 var weeklyReport = new WeeklyReport
                 {
                     InstructorID = _weeklyReport.InstructorID,

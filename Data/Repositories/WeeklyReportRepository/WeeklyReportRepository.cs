@@ -50,7 +50,7 @@ namespace DataAccessEfCore.Repositories.WeeklyReportRepository
 
         public async Task<WeeklyReport?> GetWeeklyReportAsyncByDateFrom(DateTime _monday)
         {
-            var OneReport =  _dbContext.WeeklyReports.FirstOrDefault(weeklyReport => weeklyReport.DateFrom == _monday);
+            var OneReport =  _dbContext.WeeklyReports.FirstOrDefault(weeklyReport => weeklyReport.DateFrom.Date == _monday.Date);
             
             
             return OneReport;

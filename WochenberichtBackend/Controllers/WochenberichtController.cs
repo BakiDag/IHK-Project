@@ -100,7 +100,8 @@ namespace Wochenbericht.Controllers
                 else
                 {
                     return BadRequest("Wochenbericht existiert bereits");
-                }                
+                }   
+                
                 var weeklyReport = new WeeklyReport
                 {
                     InstructorID = _weeklyReport.InstructorID,
@@ -117,7 +118,8 @@ namespace Wochenbericht.Controllers
                     SigningDateApprentice = _weeklyReport.SigningDateApprentice,
                     WeeklyReportPositions = _weeklyReport.WeeklyReportPositions,
                 };
-                //var getReportID = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(monday).Result.ID;
+                
+                //var getReportID = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(weeklyReport.DateFrom).Result.ID;
                 
                 var Appr = await unitOfWork.ApprenticeRepository.GetApprenticeAsyncById(_weeklyReport.ApprenticeID);
                 var Inst = await unitOfWork.InstrutorRepository.GetInstructorAsyncById(_weeklyReport.InstructorID);
@@ -137,15 +139,15 @@ namespace Wochenbericht.Controllers
                     var getReport = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(weeklyReport.DateFrom);
                     var countPositionDays = 0;
                     var FivePositionsSaved = 0;
-                    while (getReport.Result.DateFrom< getReport.Result.DateTo)
-                    //for (int i = 0; i < 5; i++)
+                    while (getReport.Result.DateFrom< getReport.Result.DateTo)                    
                     {
-                        
-                        //var id = unitOfWork.WeeklyReportPositionRepository.GetAllReportPositionIDAsync();
+                        var notes = new Note();
+                        notes.InstructorID = weeklyReport.InstructorID;
+
                         var weeklyReportPosition = new WeeklyReportPosition();
                         weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
                         weeklyReportPosition.ApprenticeID = Appr.ID;
-                        //weeklyReportPosition.
+                        
                         //weeklyReportPosition.NoteID = _weeklyReportPosition.NoteID;
                         weeklyReportPosition.DailyReport = "";
                         weeklyReportPosition.DailyHours = 0;
@@ -158,14 +160,21 @@ namespace Wochenbericht.Controllers
                             weeklyReportPosition.Date = weeklyReport.DateFrom.AddDays(countPositionDays);
                         }
                         countPositionDays++;
-
-                        //weeklyReportPosition.WeeklyReport.ID = getReport
-
-                        var createReport = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition) != null;
+                        var createReportPosition = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition);
+                        bool created;
+                        if(createReportPosition != null)
+                        {
+                            created = true;
+                        }
                         
-                        if (createReport == true)
+                        if (created = true)
                         {
                             var savePosition = await unitOfWork.SaveAsync();
+                            var getPosition = await unitOfWork.WeeklyReportPositionRepository.GetWeeklyReportPositionAsyncById(createReportPosition.ID);
+                            
+                            notes.WeeklyReportPositionsID= getPosition.ID;
+                            
+                            
                             if (savePosition == true)
                             {
                                 FivePositionsSaved++;

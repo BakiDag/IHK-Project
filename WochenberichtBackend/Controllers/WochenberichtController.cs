@@ -85,12 +85,18 @@ namespace Wochenbericht.Controllers
                 var PreviousMonday = DateTime.Now.Previous(DayOfWeek.Monday);
                 var PreviousFriday = PreviousMonday.AddDays(4);
                 var today = DateTime.Today;
+                _weeklyReport.DateFrom = PreviousMonday;
 
-
-                
-                var reportExist = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom( PreviousMonday) == null;
-                
-                if (reportExist)
+                var all = unitOfWork.WeeklyReportRepository.GetAllWeeklyReportAsync();
+                var reportExist = new WeeklyReport(); //= unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(_weeklyReport.DateFrom);
+                foreach (var item in await all)
+                {
+                    if(item.DateFrom == PreviousMonday)
+                    {
+                        reportExist.DateFrom = item.DateFrom;
+                    }
+                }
+                if (reportExist.DateFrom == PreviousMonday)
                 {
                     _weeklyReport.DateFrom = NextMonday;
                 }

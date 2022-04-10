@@ -161,7 +161,7 @@ namespace Wochenbericht.Controllers
                         }
                         countPositionDays++;
                         var createReportPosition = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition);
-                        var trygetposition = await unitOfWork.WeeklyReportPositionRepository.GetWeeklyReportPositionAsyncById(weeklyReportPosition.ID);
+                        
                         bool created;
                         if(createReportPosition != null)
                         {

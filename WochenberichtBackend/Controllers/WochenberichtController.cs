@@ -174,10 +174,12 @@ namespace Wochenbericht.Controllers
                             var getPosition = await unitOfWork.WeeklyReportPositionRepository.GetWeeklyReportPositionAsyncById(createReportPosition.ID);
                             
                             notes.WeeklyReportPositionsID= getPosition.ID;
-                            //while setzen 
+                            
                             var createNote = unitOfWork.NotesRepository.CreateNoteAsync(notes);
                             var saveNote = await unitOfWork.SaveAsync();
-                            
+
+                            // get last 5 notes and update position note ID
+                            // position ID and Instructor ID needed for searching note with new get method
                             if (savePosition == true)
                             {
                                 FivePositionsSaved++;

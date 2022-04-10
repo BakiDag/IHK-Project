@@ -137,8 +137,11 @@ namespace Wochenbericht.Controllers
                 else
                 {
                     var getReport = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(weeklyReport.DateFrom);
+
                     var countPositionDays = 0;
                     var FivePositionsSaved = 0;
+                    
+
                     while (getReport.Result.DateFrom < getReport.Result.DateTo)                    
                     {
                         var notes = new Note();                        
@@ -148,7 +151,7 @@ namespace Wochenbericht.Controllers
                         weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
                         weeklyReportPosition.ApprenticeID = Appr.ID;
                         
-                        //weeklyReportPosition.NoteID = _weeklyReportPosition.NoteID;
+                        
                         weeklyReportPosition.DailyReport = "";
                         weeklyReportPosition.DailyHours = 0;
                         if(countPositionDays == 0)
@@ -166,6 +169,11 @@ namespace Wochenbericht.Controllers
                         if(createReportPosition != null)
                         {
                             created = true;
+                            //var savePosition = await unitOfWork.SaveAsync();
+                        }
+                        else
+                        {
+                            return BadRequest("Problems at creating Position");
                         }
                         
                         if (created = true)
@@ -179,8 +187,6 @@ namespace Wochenbericht.Controllers
                             var saveNote = await unitOfWork.SaveAsync();                            
                             weeklyReportPosition.NoteID = createNote.Result.ID;
                             
-                            //var updatePosition = unitOfWork.SaveAsync();
-
                             // get last 5 notes and update position note ID
                             // position ID and Instructor ID needed for searching note with new get method
 
@@ -194,13 +200,14 @@ namespace Wochenbericht.Controllers
                             }
                             if (FivePositionsSaved == 5)
                             {
-                                var saveLastPos = unitOfWork.SaveAsync();
-
+                                var saveLastPos = unitOfWork.SaveAsync() != null;
+                                if (saveLastPos == false)
+                                    return BadRequest(weeklyReportPosition);
                                 return StatusCode(201, weeklyReportPosition);
                             }
                         }
                     }
-                    //var saveNoteLast = await unitOfWork.SaveAsync();
+                    
                     return StatusCode(201, "Weekly Report Created\r\n" + weeklyReport);
                 }
             }

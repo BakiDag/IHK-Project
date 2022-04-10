@@ -143,7 +143,7 @@ namespace Wochenbericht.Controllers
                     {
                         var notes = new Note();
                         notes.InstructorID = weeklyReport.InstructorID;
-
+                        notes.Comment = "";
                         var weeklyReportPosition = new WeeklyReportPosition();
                         weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
                         weeklyReportPosition.ApprenticeID = Appr.ID;
@@ -173,7 +173,8 @@ namespace Wochenbericht.Controllers
                             var getPosition = await unitOfWork.WeeklyReportPositionRepository.GetWeeklyReportPositionAsyncById(createReportPosition.ID);
                             
                             notes.WeeklyReportPositionsID= getPosition.ID;
-                            var saveNote = await unitOfWork.SaveAsync();
+                            var createNote = unitOfWork.NotesRepository.CreateNoteAsync(notes);
+                            //var saveNote = await unitOfWork.SaveAsync();
                             
                             if (savePosition == true)
                             {
@@ -189,7 +190,7 @@ namespace Wochenbericht.Controllers
                             }
                         }
                     }
-
+                    var saveNote = await unitOfWork.SaveAsync();
                     return StatusCode(201, "Weekly Report Created\r\n" + weeklyReport);
                 }
             }
@@ -231,8 +232,8 @@ namespace Wochenbericht.Controllers
         {
             Note note = new Note();
             //note.WeeklyReportPositionsID = _note.WeeklyReportPositionsID;
-            note.InstructorID = _note.InstructorID;
-            note.Comment = _note.Comment;
+            //note.InstructorID = _note.InstructorID;
+            //note.Comment = _note.Comment;
 
             var added = await unitOfWork.NotesRepository.CreateNoteAsync(note) != null;
             if (added == true)

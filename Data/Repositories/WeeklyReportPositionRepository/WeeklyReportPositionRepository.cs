@@ -25,8 +25,12 @@ namespace DataAccessEfCore.Repositories.WeeklyReportPositionRepository
         {
             
             var added = _dbContext.WeeklyReportPositions.Add(weeklyReportPosition) != null;
-            //if(added == false)
-            //    _dbContext.Dispose();
+            if(added == false)
+            {
+                weeklyReportPosition = null;
+                return weeklyReportPosition;
+            }
+                 
             return weeklyReportPosition;
         }
 

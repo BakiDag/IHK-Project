@@ -157,7 +157,7 @@ namespace Wochenbericht.Controllers
                         }
                         else
                         {
-                            weeklyReportPosition.Date = weeklyReport.DateFrom.AddDays(countPositionDays);
+                            weeklyReportPosition.Date = weeklyReport.DateFrom.AddDays(countPositionDays);                            
                         }
                         countPositionDays++;
                         var createReportPosition = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition);
@@ -176,10 +176,14 @@ namespace Wochenbericht.Controllers
                             notes.WeeklyReportPositionsID= getPosition.ID;
                             
                             var createNote = unitOfWork.NotesRepository.CreateNoteAsync(notes);
-                            var saveNote = await unitOfWork.SaveAsync();
+                            var saveNote = await unitOfWork.SaveAsync();                            
+                            weeklyReportPosition.NoteID = createNote.Result.ID;
+                            
+                            //var updatePosition = unitOfWork.SaveAsync();
 
                             // get last 5 notes and update position note ID
                             // position ID and Instructor ID needed for searching note with new get method
+
                             if (savePosition == true)
                             {
                                 FivePositionsSaved++;
@@ -194,7 +198,7 @@ namespace Wochenbericht.Controllers
                             }
                         }
                     }
-                    //var saveNote = await unitOfWork.SaveAsync();
+                    //var saveNoteLast = await unitOfWork.SaveAsync();
                     return StatusCode(201, "Weekly Report Created\r\n" + weeklyReport);
                 }
             }

@@ -108,14 +108,17 @@ namespace DataAccessEfCore.DataContext
                 entity.ToTable("Notes");
                 entity.HasKey(e => e.ID);
                 entity.Property(e => e.Comment).HasColumnName("Comment").HasMaxLength(350);
-                entity.HasOne(d => d.Instructor)
-                      .WithMany(p => p.Notes)
-                      .HasForeignKey(d => d.InstructorID)
-                      .OnDelete(DeleteBehavior.NoAction);
-                entity.HasOne(d => d.WeeklyReportPosition)
-                      .WithOne(p => p.Note)
-                      .HasForeignKey<Note>(d => d.WeeklyReportPositionsID)
-                      .OnDelete(DeleteBehavior.Restrict);
+                entity.Property(e => e.InstructorID).HasColumnName("InstructorID").IsRequired();
+                
+                entity.Property(e => e.WeeklyReportPositionsID).HasColumnName("WeeklyReportPositionsID").IsRequired();
+                //entity.HasOne(d => d.Instructor)
+                //      .WithMany(p => p.Notes)
+                //      .HasForeignKey(d => d.InstructorID)
+                //      .OnDelete(DeleteBehavior.NoAction);
+                //entity.HasOne(d => d.WeeklyReportPosition)
+                //      .WithOne(p => p.Note)
+                //      .HasForeignKey<Note>(d => d.WeeklyReportPositionsID)
+                //      .OnDelete(DeleteBehavior.Restrict);
             });
             #endregion
 

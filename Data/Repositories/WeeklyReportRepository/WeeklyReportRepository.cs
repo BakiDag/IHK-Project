@@ -27,7 +27,7 @@ namespace DataAccessEfCore.Repositories.WeeklyReportRepository
                 _dbContext.WeeklyReports.Add(weeklyReport);
                 return weeklyReport;
             }
-            _dbContext.Dispose();
+            //_dbContext.Dispose();
             weeklyReport = null;
             return weeklyReport;
             //return weeklyReport;

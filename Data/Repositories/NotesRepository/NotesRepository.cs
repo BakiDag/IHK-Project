@@ -20,8 +20,7 @@ namespace DataAccessEfCore.Repositories.NotesRepository
         public async Task<Note> CreateNoteAsync(Note _Notes)
         {
             var added = _dbContext.Notes.Add(_Notes) !=null;
-            if(added == false)
-                _dbContext.Dispose();
+            
             
             return _Notes;
         }

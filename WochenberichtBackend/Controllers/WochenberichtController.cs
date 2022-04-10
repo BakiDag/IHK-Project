@@ -139,11 +139,11 @@ namespace Wochenbericht.Controllers
                     var getReport = unitOfWork.WeeklyReportRepository.GetWeeklyReportAsyncByDateFrom(weeklyReport.DateFrom);
                     var countPositionDays = 0;
                     var FivePositionsSaved = 0;
-                    while (getReport.Result.DateFrom< getReport.Result.DateTo)                    
+                    while (getReport.Result.DateFrom < getReport.Result.DateTo)                    
                     {
-                        var notes = new Note();
+                        var notes = new Note();                        
                         notes.InstructorID = weeklyReport.InstructorID;
-                        notes.Comment = "";
+                        
                         var weeklyReportPosition = new WeeklyReportPosition();
                         weeklyReportPosition.WeeklyReportID = getReport.Result.ID;
                         weeklyReportPosition.ApprenticeID = Appr.ID;
@@ -161,6 +161,7 @@ namespace Wochenbericht.Controllers
                         }
                         countPositionDays++;
                         var createReportPosition = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition);
+                        var trygetposition = await unitOfWork.WeeklyReportPositionRepository.GetWeeklyReportPositionAsyncById(weeklyReportPosition.ID);
                         bool created;
                         if(createReportPosition != null)
                         {
@@ -173,8 +174,9 @@ namespace Wochenbericht.Controllers
                             var getPosition = await unitOfWork.WeeklyReportPositionRepository.GetWeeklyReportPositionAsyncById(createReportPosition.ID);
                             
                             notes.WeeklyReportPositionsID= getPosition.ID;
+                            //while setzen 
                             var createNote = unitOfWork.NotesRepository.CreateNoteAsync(notes);
-                            //var saveNote = await unitOfWork.SaveAsync();
+                            var saveNote = await unitOfWork.SaveAsync();
                             
                             if (savePosition == true)
                             {
@@ -190,7 +192,7 @@ namespace Wochenbericht.Controllers
                             }
                         }
                     }
-                    var saveNote = await unitOfWork.SaveAsync();
+                    //var saveNote = await unitOfWork.SaveAsync();
                     return StatusCode(201, "Weekly Report Created\r\n" + weeklyReport);
                 }
             }

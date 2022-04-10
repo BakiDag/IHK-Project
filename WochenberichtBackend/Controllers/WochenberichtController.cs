@@ -157,7 +157,7 @@ namespace Wochenbericht.Controllers
                         }
                         else
                         {
-                            weeklyReportPosition.Date = weeklyReport.DateFrom.AddDays(countPositionDays);                            
+                            weeklyReportPosition.Date = weeklyReport.DateFrom.AddDays(countPositionDays);
                         }
                         countPositionDays++;
                         var createReportPosition = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition);
@@ -194,6 +194,8 @@ namespace Wochenbericht.Controllers
                             }
                             if (FivePositionsSaved == 5)
                             {
+                                var saveLastPos = unitOfWork.SaveAsync();
+
                                 return StatusCode(201, weeklyReportPosition);
                             }
                         }

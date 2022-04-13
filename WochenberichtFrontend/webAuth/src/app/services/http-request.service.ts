@@ -92,7 +92,8 @@ export class HttpRequestService {
      }
     public getAuszubildende()
     {          
-      return this.httpClient.get<responseModel>(this.userManagment+"getAuszubildende",{ withCredentials: true }).pipe(map(res=>{
+      //return this.httpClient.get<responseModel>(this.userManagment+"GetAllApprentices",{ withCredentials: true }).pipe(map(res=>{
+        return this.httpClient.get<responseModel>(this.userManagment+"GetAllApprentices").pipe(map(res=>{
         let mitarbeiterList=new Array<Mitarbeiter>();
         if(res.responseCode==responseCode.OK)
         {

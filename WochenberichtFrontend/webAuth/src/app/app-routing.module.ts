@@ -24,34 +24,34 @@ import { ReportControlComponent } from './ausbilderComponents/report-control/rep
 
 
 const routes: Routes = [
-    // //{path: "/app", component:AppComponent},
-    // {path: "register", component:RegisterComponent},
-    // {path:"login", component:LoginComponent},
-    // {path:"azubi-management", component: AzubiManagementComponent, canActivate:[AuthGuardService]},    
-    // {path:"mitarbeiter-management", component: MitarbeiterManagementComponent, canActivate:[AuthGuardService]},      
-    // {path:"ausbilder-dashboard", component: AusbilderDashboardComponent, canActivate:[AuthGuardService]},    
-    // {path:"azubi-dashboard", component: AzubiDashboardComponent, canActivate:[AuthGuardService]},    
-    // {path:"wochenbericht-liste", component: WochenberichtListeComponent, canActivate:[AuthGuardService]}, 
-    // {path:"wochenbericht-view", component: WochenberichtViewComponent, canActivate:[AuthGuardService]}, 
-    // {path:"AusbilderMessageCenter", component: AusbilderMessageCenterComponent, canActivate:[AuthGuardService]}, 
-    // {path:"AzubiMessageCenter", component: AzubiMessageCenterComponent, canActivate:[AuthGuardService]}, 
-    // {path:"admin-register", component: AdminRegisterComponent, canActivate:[AuthGuardService]}, 
-    
-
     //{path: "/app", component:AppComponent},
     {path: "register", component:RegisterComponent},
     {path:"login", component:LoginComponent},
-    {path:"azubi-management", component: AzubiManagementComponent },
-    {path:"mitarbeiter-management", component: MitarbeiterManagementComponent},
-    {path:"ausbilder-dashboard", component: AusbilderDashboardComponent},
-    {path:"azubi-dashboard", component: AzubiDashboardComponent},
-    {path:"wochenbericht-liste", component: WochenberichtListeComponent},
-    {path:"wochenbericht-view", component: WochenberichtViewComponent},
-    {path:"AusbilderMessageCenter", component: AusbilderMessageCenterComponent},
-    {path:"AzubiMessageCenter", component: AzubiMessageCenterComponent}, 
-    {path:"admin-register", component: AdminRegisterComponent },
-    {path:"report-control", component: ReportControlComponent },
-];
+    {path:"azubi-management", component: AzubiManagementComponent, canActivate:[AuthGuardService]},    
+    {path:"mitarbeiter-management", component: MitarbeiterManagementComponent, canActivate:[AuthGuardService]},      
+    {path:"ausbilder-dashboard", component: AusbilderDashboardComponent, canActivate:[AuthGuardService]},    
+    {path:"azubi-dashboard", component: AzubiDashboardComponent, canActivate:[AuthGuardService]},    
+    {path:"wochenbericht-liste", component: WochenberichtListeComponent, canActivate:[AuthGuardService]}, 
+    {path:"wochenbericht-view", component: WochenberichtViewComponent, canActivate:[AuthGuardService]}, 
+    {path:"AusbilderMessageCenter", component: AusbilderMessageCenterComponent, canActivate:[AuthGuardService]}, 
+    {path:"AzubiMessageCenter", component: AzubiMessageCenterComponent, canActivate:[AuthGuardService]}, 
+    {path:"admin-register", component: AdminRegisterComponent, canActivate:[AuthGuardService]}, 
+    
+
+    //{path: "/app", component:AppComponent},
+//     {path: "register", component:RegisterComponent},
+//     {path:"login", component:LoginComponent},
+//     {path:"azubi-management", component: AzubiManagementComponent },
+//     {path:"mitarbeiter-management", component: MitarbeiterManagementComponent},
+//     {path:"ausbilder-dashboard", component: AusbilderDashboardComponent},
+//     {path:"azubi-dashboard", component: AzubiDashboardComponent},
+//     {path:"wochenbericht-liste", component: WochenberichtListeComponent},
+//     {path:"wochenbericht-view", component: WochenberichtViewComponent},
+//     {path:"AusbilderMessageCenter", component: AusbilderMessageCenterComponent},
+//     {path:"AzubiMessageCenter", component: AzubiMessageCenterComponent}, 
+//     {path:"admin-register", component: AdminRegisterComponent },
+//     {path:"report-control", component: ReportControlComponent },
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

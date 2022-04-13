@@ -12,7 +12,7 @@ import { Role } from '../Models/role';
 })
 export class HttpRequestService {
   private readonly weeklyReport:string="https://localhost:44397/api/wochenbericht/" //adresse aus postman
-  private readonly userManagment:string="https://localhost:44397/api/UserManagement/" //adresse aus postman
+  private readonly userManagment:string="https://localhost:44397/api/userManagment/" //adresse aus postman
   
     
     constructor(private httpClient: HttpClient) { }

@@ -457,13 +457,14 @@ namespace WochenberichtWebApp.Controllers
         #region GetAllApprentices
         [AllowAnonymous]
         [HttpGet("GetAllApprentices")]
-        public async Task<IActionResult> GetAllApprentices()
+        public async Task<object> GetAllApprentices()
         {
 
             var apprenticeList = await unitOfWork.ApprenticeRepository.GetAllApprenticesAsync();
             if (apprenticeList == null)
                 return NotFound("Instructor Doesnt exists");
-            return Ok(apprenticeList);
+            //return Ok(apprenticeList);
+            return await Task.FromResult(new ResponseModel(ResponseCode.OK, "", apprenticeList));
         }
 
         #endregion

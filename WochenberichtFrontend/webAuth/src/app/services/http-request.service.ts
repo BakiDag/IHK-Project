@@ -94,7 +94,7 @@ export class HttpRequestService {
     {          
       //return this.httpClient.get<responseModel>(this.userManagment+"GetAllApprentices",{ withCredentials: true }).pipe(map(res=>{
         return this.httpClient.get<responseModel>(this.userManagment+"GetAllApprentices").pipe(map(res=>{
-        let mitarbeiterList=new Array<Mitarbeiter>();
+        let mitarbeiterList=new Array<Mitarbeiter>();        
         if(res.responseCode==responseCode.OK)
         {
              if(res.dateSet)

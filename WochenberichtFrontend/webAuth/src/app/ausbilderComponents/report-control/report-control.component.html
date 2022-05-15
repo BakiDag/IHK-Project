@@ -14,30 +14,32 @@
 <div class="card">  
    <div >
      <!-- evtl Entfernen oder Abändern, der Auszubildende dürfte es nicht mehr editieren dürfen nach einsenden -->
-    <p>Status :</p>
-    <p *ngIf="statusAzubiInBearbeitung" ><span class="StatusAzubiInBearbeitungDot" >●</span>{{statusAzubiInBearbeitung}} Azubi bearbeitet</p>
-    <p *ngIf="statusAzubiHatUnterschrieben"><span class="StatusAzubiHatUnterschriebenDot">● </span>{{statusAzubiHatUnterschrieben}} Azubi hat unterschrieben</p>
-    <p *ngIf="StatusInstructor"><span class="StatusAusbilderLiegtZurUeberpruefungVor">●</span>{{StatusInstructor}} Ausbilder prüft</p>
-    <p *ngIf="StatusInstructor"><span class="StatusAusbilderSigned">●</span>{{StatusInstructor}} Ausbilder hat unterschrieben</p>
-     
-   </div>
+    <p>Status : </p>
+    <!-- <p *ngIf="statusAzubiInBearbeitung" ><span class="StatusAzubiInBearbeitungDot" >●</span>{{statusAzubiInBearbeitung}} Azubi bearbeitet</p>
+    <p *ngIf="statusAzubiHatUnterschrieben"><span class="StatusAzubiHatUnterschriebenDot">●  </span>{{statusAzubiHatUnterschrieben}} Azubi hat unterschrieben</p>
+    <p *ngIf="StatusInstructor"><span class="StatusAusbilderLiegtZurUeberpruefungVor">● </span>{{StatusInstructor}} Ausbilder prüft</p>
+    <p *ngIf="StatusInstructor"><span class="StatusAusbilderSigned">●</span>{{StatusInstructor}} Ausbilder hat unterschrieben</p> -->
+    <p>● <strong>Auszubildender hat unterschrieben</strong> </p>    
+    <p>● <strong>Liegt zur Überprüfung vor</strong> </p>
+  </div>
 
-  <h5 class="card-header">Wochenbericht von</h5>
+  <h5 class="card-header">Wochenbericht von Ruwen Müller</h5>
   <div class="card-body">
     <table class="table">
       <tbody>
         <tr>
-          <td>{{this.tokenInfo.Role}} <label class="from-control" readonly>{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}}</label></td>
+          <td>{{this.tokenInfo.Role}} <label class="from-control" readonly>Uwe Meier{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}}</label></td>
         </tr>
         <tr>
-          <td>Wochenbericht Nummer: {{_Page}} data binding
+          <!-- <td>Wochenbericht Nummer: {{_Page}}  -->
+            <!-- <td>Wochenbericht Nummer:   -->
         </tr>
         <tr>
-          <td>Woche von: <label>{{_DateFrom}} test Label</label></td>         
-          <td>Bis: <label> {{_DateTil}} test Label</label></td>
+          <td>Woche von: <label>03.01.2022{{_DateFrom}}  </label></td>         
+          <td>Bis: <label>07.01.2022 {{_DateTil}}  </label></td>
         </tr>
         <tr>
-          <td>Wochenarbeitszeit: <label placeholder="40 Stunden" [(ngModel)]="WeeklyWorkHours"> Stunden Label</label>   </td>
+          <td>Wochenarbeitszeit: <label placeholder="40 Stunden" [(ngModel)]="WeeklyWorkHours"> 40</label>   </td>
         </tr>
       </tbody>
     </table>
@@ -55,7 +57,7 @@
         <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
         <div class="col-auto">
           <Label>Arbeitszeit in Stunden</Label>          
-          <label class="form-control"[(ngModel)]="HoursMon" type="number" readonly></label>
+          <label class="form-control"[(ngModel)]="HoursMon" type="number" readonly>8</label>
         </div>
       </div>      
       <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
@@ -64,7 +66,7 @@
             <label for="MondayReport">Report</label>
             
             <textarea class="form-control" id="MondayReport" 
-      cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="MondayReport" readonly></textarea>           
+      cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="MondayReport" readonly>Teams Meeting mit dem Ausbilder, Installation von Visual Studio 2022, Installation Visual Studio Code, Einarbeitung in Design Pattern in ASP.NET Core, Konfiguration der appsettings.json, Enticklung von Models und Klassen</textarea>           
         </div>
         <div class="col-4">
             <br>
@@ -87,7 +89,7 @@
           <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
           <div class="col-auto">
             <Label>Arbeitszeit in Stunden</Label>
-            <label class="form-control"[(ngModel)]="HoursTuesday" type="number" readonly></label>
+            <label class="form-control"[(ngModel)]="HoursTuesday" type="number" readonly>8</label>
           </div>
         </div>      
         <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
@@ -150,7 +152,7 @@
           <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
           <div class="col-auto">
             <Label>Arbeitszeit in Stunden</Label>
-            <label class="form-control"[(ngModel)]="HoursThursday" type="number" readonly></label>
+            <label class="form-control"[(ngModel)]="HoursThursday" type="number" readonly>8</label>
           </div>
         </div>      
         <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
@@ -158,7 +160,7 @@
               <br>
               <label for="ThursdayReport">Report</label>
               <textarea class="form-control" id="ThursdayReport" 
-        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="ThursdayReport" readonly></textarea>           
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="ThursdayReport" readonly>Installation und Crash Kurs in GitKraken,Einarbeitung in GIT Versionskontrolle, Installation von GIT Cli, Account erstellen auf GitHub</textarea>           
           </div>
           <div class="col-4">
               <br>
@@ -182,7 +184,7 @@
           <div class="col-auto " style="margin-left: 10px;padding: 0.1;"></div>
           <div class="col-auto">
             <Label>Arbeitszeit in Stunden</Label>
-            <label class="form-control"[(ngModel)]="HoursFriday" type="number" readonly></label>
+            <label class="form-control"[(ngModel)]="HoursFriday" type="number" readonly>8</label>
           </div>
         </div>      
         <div class="row justify-content-center" style="width:75%; margin-left:10px; margin-bottom: 10px;">
@@ -190,7 +192,7 @@
               <br>
               <label for="FridayReport">Report</label>
               <textarea class="form-control" id="FridayReport" 
-        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="FridayReport" readonly></textarea>           
+        cols="8" rows="5" style="resize: none" maxlength="300" [(ngModel)]="FridayReport" readonly>Update von Angular CLI, Implementieren weiterer Komponenten, Einbinden der Ruten in app-routing, aktivieren von auth.guard, erstellen von HTTP Requests</textarea>           
           </div>
           <div class="col-4">
               <br>
@@ -210,15 +212,16 @@
 <br>
 <div class="azubi-sign">
   <br>    
-  <p>Mit dem Absenden bestätigen Sie, das Sie den Bericht geprüft haben.</p>
+  <p>Mit dem Abschließen bestätigen Sie, das Sie den Bericht geprüft haben.</p>
   <p>Unterschrift Ausbilder</p>    
-  <label style="border: 1px solid">{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}} </label>
+  <!-- <label style="border: 1px solid">{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}} Uwe Meier</label> -->
+  <label style="border: 1px solid"> Uwe Meier 07.01.2022 15:37</label>
   
 </div>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-primary me-md-2" type="button" (click)="Release()">Release</button>  
-  <button class="btn btn-danger me-md-2" type="button" (click)="Decline()">Decline</button>  
+  <button class="btn btn-primary me-md-2" type="button" (click)="Release()">Abschließen</button>  
+  <button class="btn btn-danger me-md-2" type="button" (click)="Decline()">Zur Nachbearbeitung schicken</button>  
 </div>
 <br>
 

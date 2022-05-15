@@ -29,5 +29,17 @@ namespace DataAccessEfCore.Repositories.NotesRepository
             return _Notes;
         }
 
+        public async Task<Note> DeleteNoteAsyncByID(int id)
+        {
+            var _note = _dbContext.Notes.Where(x => x.ID == id)
+                                                    .FirstOrDefault();
+            if (_note != null)
+            {
+                _dbContext.Notes.Remove(_note);
+                return _note;
+            }
+            return _note;
+        }
+
     }
 }

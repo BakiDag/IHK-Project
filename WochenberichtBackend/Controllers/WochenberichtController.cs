@@ -132,7 +132,8 @@ namespace Wochenbericht.Controllers
                 var complete = await unitOfWork.SaveAsync();
                 if (complete == false)
                 {
-                    return BadRequest("Wochenbericht mit Positionen und Notes konnte nicht gespeichert werden " + weeklyReport);
+
+                    return BadRequest("Wochenbericht mit Positionen nicht gespeichert werden " + weeklyReport);
                 }
                 else
                 {
@@ -173,7 +174,11 @@ namespace Wochenbericht.Controllers
                         }
                         else
                         {
-                            return BadRequest("Problems at creating Position");
+                            var removeReport = unitOfWork.WeeklyReportRepository.DeleteWeeklyReportAsync(getReport.Result.ID) != null;
+                            if(removeReport == true)
+                            {
+                                return BadRequest("Problems at creating Position. Report deleted");
+                            }
                         }
                         
                         if (created = true)
@@ -196,7 +201,9 @@ namespace Wochenbericht.Controllers
                             }
                             else
                             {
-                                return BadRequest(weeklyReportPosition);
+                                var removePosition = await unitOfWork.WeeklyReportPositionRepository.DeletetWeeklyReportPositionAsync(getPosition.ID);
+                                var removeNote = await unitOfWork.NotesRepository.DeleteNoteAsyncByID(removePosition.NoteID);
+                                return BadRequest("Check if Position and note deleted "+weeklyReportPosition);
                             }
                             if (FivePositionsSaved == 5)
                             {
@@ -218,52 +225,6 @@ namespace Wochenbericht.Controllers
         }
         #endregion
 
-        #region CreateReportPosition
-        [HttpPost("CreateReportPosition")]
-        public async Task<IActionResult> CreateReportPosition([FromBody] WeeklyReportPosition _weeklyReportPosition)
-        {
-            var weeklyReportPosition = new WeeklyReportPosition();
-            //weeklyReportPosition.WeeklyReportID = _weeklyReportPosition.WeeklyReportID;
-            weeklyReportPosition.ApprenticeID = _weeklyReportPosition.ApprenticeID;
-            weeklyReportPosition.NoteID = _weeklyReportPosition.NoteID;
-            weeklyReportPosition.DailyReport = _weeklyReportPosition.DailyReport;
-            weeklyReportPosition.DailyHours = _weeklyReportPosition.DailyHours;
-            weeklyReportPosition.Date = _weeklyReportPosition.Date;
-
-            var result = await unitOfWork.WeeklyReportPositionRepository.CreateWeeklyReportPositionAsync(weeklyReportPosition) != null;
-            if (result == true)
-            {
-                var complete = await unitOfWork.SaveAsync();
-                if (complete == true)
-                {
-                    return StatusCode(201, weeklyReportPosition);
-                }
-            }
-            return BadRequest(weeklyReportPosition);
-        }
-        #endregion
-
-        #region CreateNote
-        [HttpPost("CreateNote")]
-        public async Task<IActionResult> CreateNote([FromBody] Note _note)
-        {
-            Note note = new Note();
-            //note.WeeklyReportPositionsID = _note.WeeklyReportPositionsID;
-            //note.InstructorID = _note.InstructorID;
-            //note.Comment = _note.Comment;
-
-            var added = await unitOfWork.NotesRepository.CreateNoteAsync(note) != null;
-            if (added == true)
-            {
-                var complete = await unitOfWork.SaveAsync();
-                if (complete == true)
-                {
-                    return StatusCode(201, note);
-                }
-            }
-            return BadRequest(_note);
-        }
-        #endregion
         #endregion
         
         

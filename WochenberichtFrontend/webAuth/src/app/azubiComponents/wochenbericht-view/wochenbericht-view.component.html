@@ -29,15 +29,15 @@
   <hr>
    <div >
      <!-- evtl Entfernen oder Abändern, der Auszubildende dürfte es nicht mehr editieren dürfen nach einsenden -->
-    <p>Status :</p>
-    <p *ngIf="statusTraineeInEditing" ><span class="StatusAzubiInBearbeitungDot" >●</span>{{statusTraineeInEditing}} Azubi bearbeitet</p>
+    <p>Status : <strong>in Bearbeitung durch Auszubildenden</strong></p>
+    <!-- <p *ngIf="statusTraineeInEditing" ><span class="StatusAzubiInBearbeitungDot" >●</span>{{statusTraineeInEditing}} Azubi bearbeitet</p>
     <p *ngIf="statusTraineeisSigned"><span class="StatusAzubiHatUnterschriebenDot">● </span>{{statusTraineeisSigned}} Azubi hat unterschrieben</p>
     <p *ngIf="StatusInstructor"><span class="StatusAusbilderLiegtZurUeberpruefungVor">●</span>{{StatusInstructor}} Ausbilder prüft</p>
     <p *ngIf="StatusInstructor"><span class="StatusAusbilderSigned">●</span>{{StatusInstructor}} Ausbilder hat unterschrieben</p>
-     
+      -->
    </div>
 
-  <h5 class="card-header">Wochenbericht für</h5>
+  <h5 class="card-header">Wochenbericht für Ruwen Müller</h5>
   <div class="card-body">
     <table class="table">
       <tbody>
@@ -45,7 +45,7 @@
           <td>{{this.tokenInfo.Role}} <label>{{this.tokenInfo.FirstName}} {{this.tokenInfo.LastName}}</label></td>
         </tr>
         <tr>
-          <td>Wochenbericht Nummer: {{_Page}}
+          <td>Wochenbericht Nummer: 2{{_Page}}
         </tr>
         <tr>
           <td>Woche von: <input type="date" class="selectpicker" [(ngModel)]="_DateFrom"></td>
@@ -87,7 +87,7 @@
             <br>
             <label for="MondayComment" >Comments</label>
             <textarea class="form-control" id="MondayComment" 
-      cols="8" rows="5" style="resize: none" maxlength="300" readonly>Comments</textarea>      
+      cols="8" rows="5" style="resize: none" maxlength="300" readonly></textarea>      
             </div>      
       </div>   
       <div class="row mt-5">

@@ -1,6 +1,6 @@
 <!-- <p *ngIf="!wochenberichtListe"><em>bitte Warten...</em></p> -->
 
-<h2>Wochenbericht Liste</h2>
+<h2 style="margin-left: 10pt;">Wochenbericht Liste</h2>
 <div class="row justify-content-center">
 
 </div>
@@ -14,7 +14,7 @@
                       <tr>                        
                         <th scope="col">Nummer
                           <input type="text" class="form-control" placeholder="Nummer" style="width:80px" ></th>
-                        <th scope="col"></th>
+                        
                         <th scope="col">Woche Von - Bis</th>                        
                         <th scope="col">Monat <select  >                            
                               <option value="">zurueck setzen</option>
@@ -42,17 +42,31 @@
                           <option >2026</option>
                           
                       </select></th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Löschen</th>
+                      <th scope="col">Erstellen
+                        <button type="button" class="btn btn-primary" title="loeschen"><span class="glyphicon glyphicon-list-alt" aria-hidden="true" ></span></button> 
+                      </th>
                       </tr>
+                      
                     </thead>
                     <tbody>                             
                       <tr  ngFor="1 to 100">
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          
-                          
+                          <td>1</td>
+                          <td><a>03.01.2022-07.01.2022</a></td>
+                          <td>Januar</td>
+                          <td>2022</td>
+                          <td>Abgeschlossen</td>
+                          <td><button type="button" class="btn btn-danger" title="loeschen"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span></button></td> 
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><a>10.01.2022-14.01.2022</a></td>
+                        <td>Januar</td>
+                        <td>2022</td>
+                        <td>in Bearbeitung</td>
+                        <!-- <td><button type="button" class="btn btn-danger" title="loeschen"><span class="glyphicon glyphicon-trash" aria-hidden="true" (click)="loeschAzubi(azubi,i)"></span></button></td>                           -->
+                        <td><button type="button" class="btn btn-danger" title="loeschen"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span></button></td> 
                       </tr>
                     </tbody>
                   </table>

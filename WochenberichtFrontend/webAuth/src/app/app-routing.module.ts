@@ -36,7 +36,7 @@ const routes: Routes = [
     {path:"AusbilderMessageCenter", component: AusbilderMessageCenterComponent, canActivate:[AuthGuardService]}, 
     {path:"AzubiMessageCenter", component: AzubiMessageCenterComponent, canActivate:[AuthGuardService]}, 
     {path:"admin-register", component: AdminRegisterComponent, canActivate:[AuthGuardService]}, 
-    
+    {path:"report-control", component: ReportControlComponent,canActivate:[AuthGuardService] },
 
     //{path: "/app", component:AppComponent},
 //     {path: "register", component:RegisterComponent},

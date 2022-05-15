@@ -10,6 +10,10 @@ namespace DataAccessEfCore.Repositories.NotesRepository
     public interface INotesRepository
     {
         Task<Note> CreateNoteAsync(Note _Notes);
+        #region DeleteOne
 
+        Task<Note> DeleteNoteAsyncByID(int id);
+
+        #endregion
     }
 }

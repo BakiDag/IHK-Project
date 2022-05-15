@@ -1,5 +1,6 @@
 <p *ngIf="!azubiList"><em>bitte Warten...</em></p>
-<h2>Azubi Management</h2>
+<!-- <h2>Azubi Management</h2> -->
+<h2 style="margin-left: 10pt">Wochenbericht Kontrolle</h2>
 <div class="row justify-content-center">
   
   </div>
@@ -19,11 +20,16 @@
                           <input type="text" class="form-control" placeholder="Suche Nachname"
                               style="width:300px" [(ngModel)]="sucheNachname" >
                         </th>
-                        <th >Email
+                        <th>
+                          <p>Wochenbericht Woche</p>
+                          <p>Von Bis</p>
+                        </th>
+                        <!-- <th >Email
                           <input type="text" class="form-control" placeholder="Suche Email"
                               style="width:150px" [(ngModel)]="sucheEmail" >
-                        </th>                          
-                        <th scope="col">Löschen</th>
+                        </th>                           -->
+                        <th>Status</th>
+                        <!-- <th scope="col">Löschen</th> -->
                         
                       </tr>
                     </thead>
@@ -34,8 +40,10 @@
                       | sucheAzubiEmail:sucheEmail">                      
                           <td>{{azubi.firstName}}</td>
                           <td>{{azubi.lastName}}</td>
-                          <td>{{azubi.email}}</td>         
-                          <td><button type="button" class="btn btn-danger" title="loeschen"><span class="glyphicon glyphicon-trash" aria-hidden="true" (click)="loeschAzubi(azubi,i)"></span></button></td>                          
+                          <td>03.01.2022 - 07.01.2022</td>
+                          <!-- <td>{{azubi.email}}</td>          -->
+                          <td>zur Kontrolle</td>
+                          <!-- <td><button type="button" class="btn btn-danger" title="loeschen"><span class="glyphicon glyphicon-trash" aria-hidden="true" (click)="loeschAzubi(azubi,i)"></span></button></td>                           -->
                       </tr>
                     </tbody>
                   </table>

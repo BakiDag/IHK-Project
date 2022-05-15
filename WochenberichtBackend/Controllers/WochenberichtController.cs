@@ -85,6 +85,16 @@ namespace Wochenbericht.Controllers
                 ThisWeekMonday = ThisWeekMonday.Date;
                 _weeklyReport.DateFrom = _weeklyReport.DateFrom.Date;
                 _weeklyReport.DateTo = _weeklyReport.DateTo.Date;
+                //Vorbereiten fuer Wochen Datum Unabhaengig erstellen
+                //if(_weeklyReport.DateFrom.DayOfWeek == DayOfWeek.Monday)
+                //{
+                //    var ItsMonday = true;
+                //    return Ok("Its Monday");
+                //}
+                //else
+                //{
+                //    return BadRequest("Date From ist nicht monday");
+                //}
 
                 if (_weeklyReport.DateFrom != ThisWeekMonday || _weeklyReport.DateTo != ThisWeekMonday.AddDays(4))
                 {

@@ -45,7 +45,7 @@ C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\DataAc
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\DataAccessEfCore.csproj.CoreCompileInputs.cache
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\DataAccessEfCore.csproj.CopyComplete
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\DataAccessEfCore.dll
-C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\refint\DataAccessEfCore.dll
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\DataAccessEfCore.pdb
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\DataAccessEfCore.genruntimeconfig.cache
 C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\obj\Debug\net6.0\ref\DataAccessEfCore.dll
+C:\Users\bdag\Desktop\full ihk project\IHK-Project-\Data\bin\Debug\net6.0\ref\DataAccessEfCore.dll
